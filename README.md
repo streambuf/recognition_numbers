@@ -1,8 +1,26 @@
 Распознаватель чисел
 ===================
+Программа распознает числа, но способна распознавать любые символы при незначительном изменении.
+Для распознавания используется **нейронная сеть**. Для работы с изображением - библиотека **OpenCV**.
+Язык **C++**. Интерфейс **Qt**.
 
-C++, OpenCV, Qt
+Функционал
+--------------
+- распознавание цифр с загруженного изображения
+- распознавание цифр нарисованных в самой программе
+- обучение при неверном ответе
+- обучение на готовых изображениях, отсортированных по папкам с соответсвующим символом
+- очистка памяти
+- свой редактор для рисования цифр с возможностью сохранения изображения
+- таблица со статистикой
 
-===================
+Скриншоты
+-------------
 
-![Alt text](https://raw.githubusercontent.com/streambuf/recognition_numbers/master/build/img/icon.png "Optional title")
+
+
+![Alt text](https://raw.githubusercontent.com/streambuf/recognition_numbers/master/screenshots/1.png "")
+
+![Alt text](https://raw.githubusercontent.com/streambuf/recognition_numbers/master/screenshots/2.png "")
+
+![Alt text](https://raw.githubusercontent.com/streambuf/recognition_numbers/master/screenshots/3.png "")
