@@ -104,48 +104,7 @@ QVector<Matrix> MainWindow::loadWeightMatrix() {
     return weights;
 }
 //-------------------------------------------------------------------------------------
-// Обучение матрицы на тестовых данных
-QVector< QVector<Matrix> > MainWindow::getTrainingMatrix() {
-    QString dir_name = "img/";
-    QVector< QVector<Matrix> > training_matrix;
 
-    for (int i = 0; i < symbols; ++i) {
-        // выбираем папку с нужной цифрой
-        QDir directory(dir_name + QString::number(i));
-        if (directory.dirName()==0) {
-            throw ExError("Ошибка выбора директории при обучении");
-        }
-        // фильтр для открытия только изображений формата png/jpg/gif
-        QStringList image_filter;
-        image_filter << "*.png" << "*.jpg" << "*.gif";
-        // список файлов
-        QFileInfoList list_files = directory.entryInfoList( image_filter, QDir::Files );
-        QVector<Matrix> images_matrix;
-
-        // получение матриц входных сигналов с изображений
-        for (int j = 0; j < list_files.size(); ++j) {
-            QFileInfo file_info = list_files.at(j);
-            QString file_name = file_info.fileName();
-            QString path_image = dir_name + QString::number(i) + "/" + file_name;
-            IplImage *image = cvLoadImage(path_image.toAscii().data());
-
-            if (image->imageSize == 0) {
-                QMessageBox::information(this, "Ошибка",
-                                         QString("Не удалось загрузить %1.").arg(file_name));
-            }
-
-            ProcessingImage proc_image(image);
-
-            QVector<Matrix> input_matrix = proc_image.get_contours_pixels();
-
-            images_matrix.push_back(input_matrix[0]);
-        }
-        training_matrix.push_back(images_matrix);
-    }
-
-    return training_matrix;
-}
-//-------------------------------------------------------------------------------------
 void MainWindow::updateScreen() {
     // вывод распознанного числа
     ui->lcdNumber->display(number.recognition());

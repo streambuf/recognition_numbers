@@ -122,19 +122,21 @@ void MainWindow::on_pushButton_2_clicked()
 
 // кнопка "Тренеровать"
 void MainWindow::on_pushButton_3_clicked() {
-    QVector< QVector<Matrix> > training_matrix;
-    try {
-        training_matrix = getTrainingMatrix();
-    }
-    catch(ExError in) {
-        QMessageBox::information(this, "Ошибка", in.info);
-        return;
-    }
-    catch(UninitializedData ie) {
-        QMessageBox::information(this, "Ошибка", ie.description);
-    }
 
     SimpleTeacherBuilder teacher;
+    TeacherDirector director;
+    director.set_teacher(&teacher);
+    director.teach("img/");
+
+    number.set_weight_matrix(teacher.get_weight_matrix());
+
+    updateScreen();
+}
+
+// кнопка "Генетический алгоритм"
+void MainWindow::on_pushButton_9_clicked() {
+
+    GeneticTeacherBuilder teacher;
     TeacherDirector director;
     director.set_teacher(&teacher);
     director.teach("img/");

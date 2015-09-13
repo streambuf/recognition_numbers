@@ -15,12 +15,15 @@ SOURCES += main.cpp\
     recognition.cpp \
     processing_image.cpp \
     mainwindow_slots.cpp \
-    paintarea.cpp
+    paintarea.cpp \
+    genetic_teacher.cpp \
+    genetic.cpp
 
 HEADERS  += mainwindow.h \
     recognition.h \
     processing_image.h \
-    paintarea.h
+    paintarea.h \
+    genetic.h
 
 FORMS    += mainwindow.ui
 

@@ -1,13 +1,13 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Fri Jul 25 15:03:23 2014
+** Created: Mon Sep 14 00:32:26 2015
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../qtopencv/mainwindow.h"
+#include "../sources/mainwindow.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
@@ -39,13 +39,13 @@ static const uint qt_meta_data_MainWindow[] = {
      140,   11,   11,   11, 0x08,
      166,   11,   11,   11, 0x08,
      192,   11,   11,   11, 0x08,
-     228,   11,  218,   11, 0x08,
-     240,   11,   11,   11, 0x08,
-     275,   11,  259,   11, 0x08,
-     320,   11,  294,   11, 0x08,
-     344,  340,  218,   11, 0x08,
-     371,   11,   11,   11, 0x08,
-     392,  386,   11,   11, 0x08,
+     218,   11,   11,   11, 0x08,
+     254,   11,  244,   11, 0x08,
+     266,   11,   11,   11, 0x08,
+     301,   11,  285,   11, 0x08,
+     324,  320,  244,   11, 0x08,
+     351,   11,   11,   11, 0x08,
+     372,  366,   11,   11, 0x08,
 
        0        // eod
 };
@@ -58,10 +58,10 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_pushButton_5_clicked()\0"
     "on_pushButton_6_clicked()\0"
     "on_pushButton_7_clicked()\0"
-    "on_pushButton_8_clicked()\0IplImage*\0"
+    "on_pushButton_8_clicked()\0"
+    "on_pushButton_9_clicked()\0IplImage*\0"
     "openImage()\0saveWeightMatrix()\0"
     "QVector<Matrix>\0loadWeightMatrix()\0"
-    "QVector<QVector<Matrix> >\0getTrainingMatrix()\0"
     "pix\0PixmapToIplImage(QPixmap*)\0"
     "updateScreen()\0image\0updateNumber(IplImage*)\0"
 };
@@ -80,13 +80,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->on_pushButton_6_clicked(); break;
         case 6: _t->on_pushButton_7_clicked(); break;
         case 7: _t->on_pushButton_8_clicked(); break;
-        case 8: { IplImage* _r = _t->openImage();
+        case 8: _t->on_pushButton_9_clicked(); break;
+        case 9: { IplImage* _r = _t->openImage();
             if (_a[0]) *reinterpret_cast< IplImage**>(_a[0]) = _r; }  break;
-        case 9: _t->saveWeightMatrix(); break;
-        case 10: { QVector<Matrix> _r = _t->loadWeightMatrix();
+        case 10: _t->saveWeightMatrix(); break;
+        case 11: { QVector<Matrix> _r = _t->loadWeightMatrix();
             if (_a[0]) *reinterpret_cast< QVector<Matrix>*>(_a[0]) = _r; }  break;
-        case 11: { QVector<QVector<Matrix> > _r = _t->getTrainingMatrix();
-            if (_a[0]) *reinterpret_cast< QVector<QVector<Matrix> >*>(_a[0]) = _r; }  break;
         case 12: { IplImage* _r = _t->PixmapToIplImage((*reinterpret_cast< QPixmap*(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< IplImage**>(_a[0]) = _r; }  break;
         case 13: _t->updateScreen(); break;

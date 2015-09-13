@@ -44,10 +44,10 @@ private slots:
     void on_pushButton_6_clicked();
     void on_pushButton_7_clicked();
     void on_pushButton_8_clicked();
+    void on_pushButton_9_clicked();
     IplImage* openImage();
     void saveWeightMatrix();
     QVector<Matrix> loadWeightMatrix();
-    QVector< QVector<Matrix> > getTrainingMatrix();
     IplImage* PixmapToIplImage(QPixmap *pix);
     void updateScreen();
     void updateNumber(IplImage* image);

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri Jul 25 15:03:09 2014
+** Created: Sun Sep 13 17:52:20 2015
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -44,6 +44,7 @@ public:
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton_5;
+    QPushButton *pushButton_9;
     QTableWidget *tableWidget;
     QGroupBox *groupBox_4;
     QPushButton *pushButton_6;
@@ -117,13 +118,16 @@ public:
 " } "));
         pushButton_2 = new QPushButton(groupBox_3);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(20, 30, 131, 27));
+        pushButton_2->setGeometry(QRect(20, 20, 131, 27));
         pushButton_3 = new QPushButton(groupBox_3);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(20, 60, 131, 27));
+        pushButton_3->setGeometry(QRect(20, 47, 131, 27));
         pushButton_5 = new QPushButton(groupBox_3);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setGeometry(QRect(20, 90, 131, 27));
+        pushButton_5->setGeometry(QRect(20, 72, 131, 27));
+        pushButton_9 = new QPushButton(groupBox_3);
+        pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
+        pushButton_9->setGeometry(QRect(20, 99, 131, 27));
         tableWidget = new QTableWidget(centralWidget);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
         tableWidget->setGeometry(QRect(20, 440, 681, 192));
@@ -179,6 +183,7 @@ public:
         pushButton_2->setText(QApplication::translate("MainWindow", "\320\235\320\265 \320\262\320\265\321\200\320\275\320\276", 0, QApplication::UnicodeUTF8));
         pushButton_3->setText(QApplication::translate("MainWindow", "\320\242\321\200\320\265\320\275\320\270\321\200\320\276\320\262\320\260\321\202\321\214", 0, QApplication::UnicodeUTF8));
         pushButton_5->setText(QApplication::translate("MainWindow", "\320\241\321\202\320\265\321\200\320\265\321\202\321\214 \320\277\320\260\320\274\321\217\321\202\321\214", 0, QApplication::UnicodeUTF8));
+        pushButton_9->setText(QApplication::translate("MainWindow", "\320\223\320\265\320\275\320\265\321\202\320\270\321\207. \320\260\320\273\320\263\320\276\321\200\320\270\321\202\320\274", 0, QApplication::UnicodeUTF8));
         groupBox_4->setTitle(QApplication::translate("MainWindow", "\320\240\320\270\321\201\320\276\320\262\320\260\320\273\320\272\320\260", 0, QApplication::UnicodeUTF8));
         pushButton_6->setText(QApplication::translate("MainWindow", "\320\240\320\260\321\201\320\277\320\276\320\267\320\275\320\260\321\202\321\214", 0, QApplication::UnicodeUTF8));
         pushButton_7->setText(QApplication::translate("MainWindow", "\320\236\321\207\320\270\321\201\321\202\320\270\321\202\321\214", 0, QApplication::UnicodeUTF8));

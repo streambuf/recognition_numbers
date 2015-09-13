@@ -10,11 +10,14 @@
 
 typedef std::tr1::array<std::tr1::array<int, 20>, 33>  Matrix;
 
+
 const int limit = 400;
 
 const int row = 33;
 const int col = 20;
 const int symbols = 10;
+const int population_size = 20;
+const int chromosome_size = row * col;
 
 
 //************************************************************************************
@@ -157,6 +160,15 @@ public:
     }
     void load_training_matrix();
 };
+
+class GeneticTeacherBuilder : public TeacherBuilder {
+    void teach();
+    void set_directory(QString dir) {
+        t->set_directory(dir);
+    }
+    void load_training_matrix();
+};
+
 
 class TeacherDirector {
 private:
