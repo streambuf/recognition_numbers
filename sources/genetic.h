@@ -38,6 +38,7 @@ private:
     void selection(QVector<Population> newPopulations);
     QVector<Population> crossing();
     QVector<Matrix> findBestWeightMatrix();
+    void mutation(Chromosome ch);
 
 public:
     GA(int size, QVector< QVector<Matrix> > training_matrix);

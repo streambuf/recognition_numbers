@@ -32,8 +32,9 @@ Population::Population(int size) {
 }
 
 QVector<Matrix> GA::getWeightMatrix() {
-    for (int i = 0; i < 1000; ++i) {
-        qDebug() << i;
+    for (int i = 0; i < 10000; ++i) {
+        if (i % 100 == 0)
+            qDebug() << i;
         QVector<Population> newPopulations = crossing();
         selection(newPopulations);
 
@@ -65,18 +66,29 @@ QVector<Matrix> GA::findBestWeightMatrix() {
 
 int GA::fitnessFunction(Chromosome ch, int index_symbol) {
     int sum = 0;
-    for (int i = 0; i < test_data.size(); ++i) {
-        for (int j = 0; j < test_data[i].size(); ++j) {
-            for (int k = 0; k < test_data[i][j].size(); ++k) {
-                if (i == index_symbol) {
-                    sum += test_data[i][j][k] * ch.getGene(k);
-                } else {
-                    sum -= test_data[i][j][k] * ch.getGene(k);
-                }
+
+        for (int j = 0; j < test_data[index_symbol].size(); ++j) {
+            for (int k = 0; k < test_data[index_symbol][j].size(); ++k) {
+
+                    sum += test_data[index_symbol][j][k] * ch.getGene(k);
+
             }
         }
-    }
+
     return sum;
+//    int sum = 0;
+//    for (int i = 0; i < test_data.size(); ++i) {
+//        for (int j = 0; j < test_data[i].size(); ++j) {
+//            for (int k = 0; k < test_data[i][j].size(); ++k) {
+//                if (i == index_symbol) {
+//                    sum += test_data[i][j][k] * ch.getGene(k);
+//                } else {
+//                    sum -= test_data[i][j][k] * ch.getGene(k);
+//                }
+//            }
+//        }
+//    }
+//    return sum;
 }
 
 void GA::selection(QVector<Population> newPopulations) {
@@ -98,8 +110,8 @@ QVector<Population> GA::crossing() {
         for (int j = 0; j < population_size - 1; j+=2) {
             Chromosome par1 = populations[i].getChromosome(j);
             Chromosome par2 = populations[i].getChromosome(j + 1);
-            int pos1 = par1.getRandNumber(0, chromosome_size);
-            int pos2 = par2.getRandNumber(0, chromosome_size);
+            int pos1 = par1.getRandNumber(0, chromosome_size -1);
+            int pos2 = par2.getRandNumber(0, chromosome_size -1);
             if (pos1 > pos2) {
                 int temp = pos1; pos1 = pos2; pos2 = temp;
             }
@@ -108,12 +120,24 @@ QVector<Population> GA::crossing() {
                 par1.setGene(k, par2.getGene(k));
                 par2.setGene(k, temp);
             }
+            mutation(par1);
+            mutation(par2);
             newPopulations[i].addChromosome(par1);
             newPopulations[i].addChromosome(par2);
 
         }
     }
     return newPopulations;
+}
+
+void GA::mutation(Chromosome ch) {
+    int probability = ch.getRandNumber(0, 100);
+    if (probability < mutation_probability) {
+        int index = ch.getRandNumber(0, chromosome_size -1);
+        int weight = ch.getRandNumber(-10, 10);
+        ch.setGene(index, weight);
+    }
+
 }
 
 GA::GA(int size, QVector< QVector<Matrix> > training_matrix) {
@@ -123,7 +147,7 @@ GA::GA(int size, QVector< QVector<Matrix> > training_matrix) {
 
     for (int i = 0; i < training_matrix.size(); ++i) {
         test_data.append(QVector< QVector<int> >());
-        for (int j = 0; j < training_matrix[i].size(); ++j) {
+        for (int j = 0; j < 1;/*training_matrix[i].size();*/ ++j) {
             test_data[i].append(QVector<int>());
             for (int k = 0; k < row; ++k) {
                 for (int m = 0; m < col; ++m) {
