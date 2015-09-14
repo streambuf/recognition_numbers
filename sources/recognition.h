@@ -16,7 +16,7 @@ const int limit = 400;
 const int row = 33;
 const int col = 20;
 const int symbols = 10;
-const int population_size = 20;
+const int population_size = 10;
 const int chromosome_size = row * col;
 
 

@@ -12,17 +12,7 @@ void GeneticTeacherBuilder::teach() {
 
     GA ga = GA(population_size, training_matrix);
 
-    Perceptron perceptron = t->get_perceptron();
-    for (int j = 0; j < training_matrix[0].size(); ++j) {
-        for (int i = 0; i < 10; ++i) {
-            perceptron.set_input_matrix(training_matrix[i][j]);
-            int correct_index = perceptron.recognition();
-//            if (correct_index != i) {
-//                perceptron.teach(i);
-//            }
-        }
-     }
-    t->set_weight_matrix(perceptron.get_weight_matrix());
+    t->set_weight_matrix(ga.getWeightMatrix());
 }
 
 
